@@ -1,5 +1,5 @@
 const fs = require("fs");
-const filePath = "../ApiState/state.json";
+const filePath = "./state.json";
 
 let functionRegistry = {}; // Store functions separately
 
