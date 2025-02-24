@@ -1,0 +1,30 @@
+# Ignore node_modules (although npm ignores it by default)
+node_modules/
+
+# Ignore JSON state files (prevents publishing dynamic state files)
+*.json
+!package.json # Keep package.json for publishing
+
+# Ignore logs and environment files
+logs/
+*.log
+debug.log
+*.log.*
+log.txt
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Ignore test files
+test/
+__tests__/
+*.spec.js
+*.test.js
+
+# Ignore build and temp files
+dist/
+build/
+tmp/
+.DS_Store
