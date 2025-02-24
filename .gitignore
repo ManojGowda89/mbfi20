@@ -18,5 +18,5 @@ debug.log
 *.log.*
 log.txt
 
-# State JSON file (ignored to prevent unnecessary commits)
-state.json
+# # State JSON file (ignored to prevent unnecessary commits)
+# state.json
