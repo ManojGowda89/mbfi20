@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    title Cache Manager
+    script(src="/script.js" defer)
+    style.
+      body { font-family: Arial, sans-serif; text-align: center; }
+      .container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; }
+      button { margin: 5px; padding: 10px; cursor: pointer; }
+      table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+      th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+      th { background: #f4f4f4; }
+      .pagination { margin-top: 10px; }
+  body
+    .container
+      h1 Cache Manager
+      button(onclick="fetchCache()") 🔄 Refresh
+      button(onclick="clearCache()") ❌ Clear All
+      form#cacheForm
+        input(type="text" id="key" placeholder="Key" required)
+        input(type="text" id="value" placeholder="Value" required)
+        button(type="submit") ➕ Set Cache
+      h2 Cached Data:
+      table
+        thead
+          tr
+            th Key
+            th Value
+            th Action
+        tbody#cacheTable
+      .pagination
+        button#prevPage(onclick="changePage(-1)") ⬅️ Previous
+        span#pageInfo Page 1
+        button#nextPage(onclick="changePage(1)") Next ➡️

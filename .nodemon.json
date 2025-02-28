@@ -1,4 +1,3 @@
 {
-    "ignore": ["state.json"]
-  }
-  
+  "ignore": ["state.json"]
+}
