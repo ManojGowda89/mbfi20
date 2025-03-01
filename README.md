@@ -65,11 +65,73 @@ setCache("name", "John Doe");
 module.exports = router;
 ```
 
+## Database Example
+```javascript
+const { port, use, Post, cors, setCache, getCache, getAllCache, defineSchema, createDocument, updateDocument, findById, findOneDocument, updateById, deleteById, getAllDocuments } = require("mbfi-server");
+
+const page1Router = require("./page1");
+const page2Router = require("./page2");
+const page3Router = require("./page3");
+use(cors());
+use(page1Router);
+use(page2Router);
+use(page3Router);
+
+defineSchema("data", {
+    name: "string",
+    age: "number"
+});
+
+// Creating a document
+const user = createDocument("data", {
+    name: "John Doe",
+    age: 25
+});
+console.log(user);
+
+// Finding a document by ID
+const foundUser = findById("data", "92661e12-cd44-4e4a-8854-88fc277a9ed3");
+console.log(foundUser);
+
+// Finding a document with a query
+const foundUserByName = findOneDocument("data", { name: "John Doe" });
+console.log(foundUserByName);
+
+// Getting all documents
+const allUsers = getAllDocuments("data");
+console.log(allUsers);
+
+// Updating a document
+const updatedUser = updateDocument("data", { name: "John Doe" }, { age: 30 });
+console.log(updatedUser);
+
+// Updating a document by ID
+const updatedUserById = updateById("data", "92661e12-cd44-4e4a-8854-88fc277a9ed3", { age: 30 });
+console.log(updatedUserById);
+
+// Deleting a document by ID
+const deletedUser = deleteById("data", "92661e12-cd44-4e4a-8854-88fc277a9ed3");
+console.log(deletedUser);
+
+setCache("name", "John Doe");
+console.log(getAllCache());
+
+Post("/data", (req, res) => {
+    const data = req.body;
+    res.send(data);
+});
+
+port(7000);
+```
+
 ## Future Enhancements
 - More utility functions for Express.js simplification
 - Improved caching mechanisms
 - Additional built-in middleware options
 - Enhanced real-time database support
+
+## Documentation
+For detailed documentation, visit [mbfi.manojgowda.in](https://mbfi.manojgowda.in).
 
 `mbfi-server` is designed to make backend development faster and more efficient with ready-made utilities and pre-configured setups. Get started today and streamline your Node.js backend development!
 
