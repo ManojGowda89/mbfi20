@@ -1,6 +1,6 @@
 {
   "name": "mbfi-server",
-  "version": "4.0.2",
+  "version": "5.0.2",
   "main": "index.js",
 
   "keywords": [],
